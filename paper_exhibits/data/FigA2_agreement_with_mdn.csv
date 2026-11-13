@@ -1,0 +1,181 @@
+key0,key1,key2,key3,mean,ci_low,ci_high
+$1.90/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Non-resilient (<0.5),0.4763819204,0.4473632712,0.5083025395
+$1.90/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Resilient (0.5-0.8),0.5065040719,0.4766979919,0.5371927671
+$1.90/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Most-resilient (>=0.8),0.01711400773,0.009773746113,0.02567470581
+$1.90/day Poverty Line,Non-resilient (<0.5),Elastic Net,Non-resilient (<0.5),0.5293153002,0.4994748385,0.5590239709
+$1.90/day Poverty Line,Non-resilient (<0.5),Elastic Net,Resilient (0.5-0.8),0.4547347201,0.4242401561,0.485252214
+$1.90/day Poverty Line,Non-resilient (<0.5),Elastic Net,Most-resilient (>=0.8),0.01594997973,0.00813549499,0.02458366537
+$1.90/day Poverty Line,Non-resilient (<0.5),XGB-1D,Non-resilient (<0.5),0.6222025134,0.5898024383,0.6524135604
+$1.90/day Poverty Line,Non-resilient (<0.5),XGB-1D,Resilient (0.5-0.8),0.3607593878,0.3284416748,0.392391851
+$1.90/day Poverty Line,Non-resilient (<0.5),XGB-1D,Most-resilient (>=0.8),0.01703809886,0.00930358132,0.02604652813
+$1.90/day Poverty Line,Non-resilient (<0.5),NN-1D,Non-resilient (<0.5),0.8603695479,0.839331151,0.8810605563
+$1.90/day Poverty Line,Non-resilient (<0.5),NN-1D,Resilient (0.5-0.8),0.1396304521,0.1189394437,0.160668849
+$1.90/day Poverty Line,Non-resilient (<0.5),NN-1D,Most-resilient (>=0.8),0,0,0
+$1.90/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Non-resilient (<0.5),0.572958445,0.5406712516,0.6035739776
+$1.90/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Resilient (0.5-0.8),0.4069754869,0.3755070517,0.4378267154
+$1.90/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Most-resilient (>=0.8),0.02006606808,0.01131513671,0.02960526316
+$1.90/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Non-resilient (<0.5),0.01779645032,0.009736132932,0.02585590438
+$1.90/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Resilient (0.5-0.8),0.432523266,0.4005058001,0.4627748286
+$1.90/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Most-resilient (>=0.8),0.5496802837,0.517502609,0.5824884836
+$1.90/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Non-resilient (<0.5),0.04106351004,0.02921521064,0.05383264627
+$1.90/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Resilient (0.5-0.8),0.5411710239,0.5127648376,0.5698620927
+$1.90/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Most-resilient (>=0.8),0.417765466,0.3896358648,0.4464064352
+$1.90/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Non-resilient (<0.5),0.04921509406,0.03602025781,0.06341300886
+$1.90/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Resilient (0.5-0.8),0.4843999085,0.4550812241,0.5146529367
+$1.90/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Most-resilient (>=0.8),0.4663849975,0.4357598598,0.4968471471
+$1.90/day Poverty Line,Resilient (0.5-0.8),NN-1D,Non-resilient (<0.5),0.06415964645,0.04867688524,0.07857171414
+$1.90/day Poverty Line,Resilient (0.5-0.8),NN-1D,Resilient (0.5-0.8),0.8809651821,0.8615337132,0.9000235849
+$1.90/day Poverty Line,Resilient (0.5-0.8),NN-1D,Most-resilient (>=0.8),0.05487517145,0.04197695213,0.06860984896
+$1.90/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Non-resilient (<0.5),0.04233581069,0.03013792786,0.05525659032
+$1.90/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Resilient (0.5-0.8),0.444762991,0.4163531119,0.475679627
+$1.90/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Most-resilient (>=0.8),0.5129011983,0.4824696205,0.5419157014
+$1.90/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Non-resilient (<0.5),0,0,0
+$1.90/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Resilient (0.5-0.8),0.003015427373,0.0007188943496,0.005999283463
+$1.90/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Most-resilient (>=0.8),0.9969845726,0.9940007165,0.9992811057
+$1.90/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Non-resilient (<0.5),0,0,0
+$1.90/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Resilient (0.5-0.8),0.03818541225,0.02907739234,0.04828298826
+$1.90/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Most-resilient (>=0.8),0.9618145877,0.9517170117,0.9709226077
+$1.90/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Non-resilient (<0.5),0,0,0
+$1.90/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Resilient (0.5-0.8),0.01654543619,0.009888656035,0.02362950152
+$1.90/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Most-resilient (>=0.8),0.9834545638,0.9763704985,0.990111344
+$1.90/day Poverty Line,Most-resilient (>=0.8),NN-1D,Non-resilient (<0.5),0,0,0
+$1.90/day Poverty Line,Most-resilient (>=0.8),NN-1D,Resilient (0.5-0.8),0.1393129953,0.1205626186,0.1595656712
+$1.90/day Poverty Line,Most-resilient (>=0.8),NN-1D,Most-resilient (>=0.8),0.8606870047,0.8404343288,0.8794373814
+$1.90/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Non-resilient (<0.5),0,0,0
+$1.90/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Resilient (0.5-0.8),0.01562710964,0.009124696793,0.02234181681
+$1.90/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Most-resilient (>=0.8),0.9843728904,0.9776581832,0.9908753032
+$3.20/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Non-resilient (<0.5),0.723083228,0.706039285,0.7410993029
+$3.20/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Resilient (0.5-0.8),0.261794195,0.2443438793,0.2779718949
+$3.20/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Most-resilient (>=0.8),0.01512257704,0.01013920298,0.02001043816
+$3.20/day Poverty Line,Non-resilient (<0.5),Elastic Net,Non-resilient (<0.5),0.7938757257,0.7777742881,0.8097546948
+$3.20/day Poverty Line,Non-resilient (<0.5),Elastic Net,Resilient (0.5-0.8),0.1974851786,0.1807673003,0.2130540068
+$3.20/day Poverty Line,Non-resilient (<0.5),Elastic Net,Most-resilient (>=0.8),0.008639095696,0.005103670503,0.01255088571
+$3.20/day Poverty Line,Non-resilient (<0.5),XGB-1D,Non-resilient (<0.5),0.7799315252,0.7649499584,0.7961379568
+$3.20/day Poverty Line,Non-resilient (<0.5),XGB-1D,Resilient (0.5-0.8),0.2034614976,0.1869507205,0.2185998127
+$3.20/day Poverty Line,Non-resilient (<0.5),XGB-1D,Most-resilient (>=0.8),0.01660697716,0.01187434405,0.02231727512
+$3.20/day Poverty Line,Non-resilient (<0.5),NN-1D,Non-resilient (<0.5),0.9752001567,0.9692896463,0.9809487518
+$3.20/day Poverty Line,Non-resilient (<0.5),NN-1D,Resilient (0.5-0.8),0.02479984326,0.01905124819,0.03071035373
+$3.20/day Poverty Line,Non-resilient (<0.5),NN-1D,Most-resilient (>=0.8),0,0,0
+$3.20/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Non-resilient (<0.5),0.7843100816,0.7696206751,0.8003391267
+$3.20/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Resilient (0.5-0.8),0.2015890491,0.1872418622,0.2159630561
+$3.20/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Most-resilient (>=0.8),0.01410086929,0.009518561007,0.01885429758
+$3.20/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Non-resilient (<0.5),0.00796605277,0.001623245282,0.01410713671
+$3.20/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Resilient (0.5-0.8),0.4354100696,0.3934724114,0.4782859146
+$3.20/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Most-resilient (>=0.8),0.5566238776,0.5145541976,0.5987703799
+$3.20/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Non-resilient (<0.5),0.04500045978,0.02940462593,0.06030294212
+$3.20/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Resilient (0.5-0.8),0.6560422443,0.6197513568,0.6916891892
+$3.20/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Most-resilient (>=0.8),0.298957296,0.2647058824,0.3354976749
+$3.20/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Non-resilient (<0.5),0.03305692287,0.02029170049,0.0465583719
+$3.20/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Resilient (0.5-0.8),0.5157176221,0.4740011031,0.5564776652
+$3.20/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Most-resilient (>=0.8),0.451225455,0.415305498,0.4899252492
+$3.20/day Poverty Line,Resilient (0.5-0.8),NN-1D,Non-resilient (<0.5),0.1966021071,0.1650536179,0.2256464812
+$3.20/day Poverty Line,Resilient (0.5-0.8),NN-1D,Resilient (0.5-0.8),0.7855106099,0.7544382385,0.8196497192
+$3.20/day Poverty Line,Resilient (0.5-0.8),NN-1D,Most-resilient (>=0.8),0.01788728301,0.008207848186,0.02983163265
+$3.20/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Non-resilient (<0.5),0.02219067037,0.01143376433,0.03307240774
+$3.20/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Resilient (0.5-0.8),0.5535862652,0.5123422278,0.5897674419
+$3.20/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Most-resilient (>=0.8),0.4242230644,0.3884145211,0.4684791168
+$3.20/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Non-resilient (<0.5),0,0,0
+$3.20/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Resilient (0.5-0.8),0.02553166811,0.01273817878,0.04166666667
+$3.20/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Most-resilient (>=0.8),0.9744683319,0.9583333333,0.9872618212
+$3.20/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Non-resilient (<0.5),0,0,0
+$3.20/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Resilient (0.5-0.8),0.135418525,0.1079154881,0.167024857
+$3.20/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Most-resilient (>=0.8),0.864581475,0.832975143,0.8920845119
+$3.20/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Non-resilient (<0.5),0,0,0
+$3.20/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Resilient (0.5-0.8),0.05538457083,0.03639553523,0.07722505916
+$3.20/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Most-resilient (>=0.8),0.9446154292,0.9227749408,0.9636044648
+$3.20/day Poverty Line,Most-resilient (>=0.8),NN-1D,Non-resilient (<0.5),0,0,0
+$3.20/day Poverty Line,Most-resilient (>=0.8),NN-1D,Resilient (0.5-0.8),0.2974894637,0.2567221969,0.3375606361
+$3.20/day Poverty Line,Most-resilient (>=0.8),NN-1D,Most-resilient (>=0.8),0.7025105363,0.6624393639,0.7432778031
+$3.20/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Non-resilient (<0.5),0,0,0
+$3.20/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Resilient (0.5-0.8),0.04273288602,0.02371392749,0.0625
+$3.20/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Most-resilient (>=0.8),0.957267114,0.9375,0.9762860725
+$5.50/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Non-resilient (<0.5),0.9061276061,0.8962956428,0.9160739448
+$5.50/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Resilient (0.5-0.8),0.09159368949,0.08228463077,0.1007762722
+$5.50/day Poverty Line,Non-resilient (<0.5),OLS+GLM,Most-resilient (>=0.8),0.002278704403,0.0009680230137,0.004189595397
+$5.50/day Poverty Line,Non-resilient (<0.5),Elastic Net,Non-resilient (<0.5),0.9540795639,0.9475031574,0.9609533781
+$5.50/day Poverty Line,Non-resilient (<0.5),Elastic Net,Resilient (0.5-0.8),0.0452791534,0.03827436826,0.05142603155
+$5.50/day Poverty Line,Non-resilient (<0.5),Elastic Net,Most-resilient (>=0.8),0.0006412826525,0,0.001623389804
+$5.50/day Poverty Line,Non-resilient (<0.5),XGB-1D,Non-resilient (<0.5),0.9321077852,0.9229249713,0.940383443
+$5.50/day Poverty Line,Non-resilient (<0.5),XGB-1D,Resilient (0.5-0.8),0.06789221475,0.059616557,0.07707502866
+$5.50/day Poverty Line,Non-resilient (<0.5),XGB-1D,Most-resilient (>=0.8),0,0,0
+$5.50/day Poverty Line,Non-resilient (<0.5),NN-1D,Non-resilient (<0.5),0.9977484881,0.9961024405,0.999346047
+$5.50/day Poverty Line,Non-resilient (<0.5),NN-1D,Resilient (0.5-0.8),0.002251511918,0.0006539530224,0.003897559515
+$5.50/day Poverty Line,Non-resilient (<0.5),NN-1D,Most-resilient (>=0.8),0,0,0
+$5.50/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Non-resilient (<0.5),0.9462027198,0.9383234206,0.9530603811
+$5.50/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Resilient (0.5-0.8),0.0537972802,0.04693961892,0.06167657942
+$5.50/day Poverty Line,Non-resilient (<0.5),XGB-Mix,Most-resilient (>=0.8),0,0,0
+$5.50/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Non-resilient (<0.5),0.03536914604,0.01388257576,0.05781638418
+$5.50/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Resilient (0.5-0.8),0.6678880298,0.6095724361,0.727324854
+$5.50/day Poverty Line,Resilient (0.5-0.8),OLS+GLM,Most-resilient (>=0.8),0.2967428242,0.2384555514,0.3611075005
+$5.50/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Non-resilient (<0.5),0.1928484576,0.1490125,0.2466461508
+$5.50/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Resilient (0.5-0.8),0.7016586867,0.6405438434,0.7600217391
+$5.50/day Poverty Line,Resilient (0.5-0.8),Elastic Net,Most-resilient (>=0.8),0.1054928557,0.06278790066,0.1519474197
+$5.50/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Non-resilient (<0.5),0.06115648633,0.02978723404,0.0976744186
+$5.50/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Resilient (0.5-0.8),0.8252829113,0.7792533642,0.8707081281
+$5.50/day Poverty Line,Resilient (0.5-0.8),XGB-1D,Most-resilient (>=0.8),0.1135606023,0.07625119923,0.1522924184
+$5.50/day Poverty Line,Resilient (0.5-0.8),NN-1D,Non-resilient (<0.5),0.3684151714,0.3052769912,0.4312980115
+$5.50/day Poverty Line,Resilient (0.5-0.8),NN-1D,Resilient (0.5-0.8),0.6184981222,0.5554226475,0.6818234185
+$5.50/day Poverty Line,Resilient (0.5-0.8),NN-1D,Most-resilient (>=0.8),0.01308670646,0,0.02832350629
+$5.50/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Non-resilient (<0.5),0.08799847083,0.05172211429,0.1275319555
+$5.50/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Resilient (0.5-0.8),0.7906943257,0.738955379,0.84
+$5.50/day Poverty Line,Resilient (0.5-0.8),XGB-Mix,Most-resilient (>=0.8),0.1213072035,0.08368261831,0.161473993
+$5.50/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Non-resilient (<0.5),0,0,0
+$5.50/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Resilient (0.5-0.8),0.1928094252,0.1208632564,0.2685623123
+$5.50/day Poverty Line,Most-resilient (>=0.8),OLS+GLM,Most-resilient (>=0.8),0.8071905748,0.7314376877,0.8791367436
+$5.50/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Non-resilient (<0.5),0.008024885511,0,0.02565789474
+$5.50/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Resilient (0.5-0.8),0.4693847006,0.3840429879,0.5555555556
+$5.50/day Poverty Line,Most-resilient (>=0.8),Elastic Net,Most-resilient (>=0.8),0.5225904139,0.4273188406,0.6077173913
+$5.50/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Non-resilient (<0.5),0.008088326946,0,0.02544030951
+$5.50/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Resilient (0.5-0.8),0.4892543134,0.4017410714,0.5703062517
+$5.50/day Poverty Line,Most-resilient (>=0.8),XGB-1D,Most-resilient (>=0.8),0.5026573597,0.4215452848,0.5857000443
+$5.50/day Poverty Line,Most-resilient (>=0.8),NN-1D,Non-resilient (<0.5),0,0,0
+$5.50/day Poverty Line,Most-resilient (>=0.8),NN-1D,Resilient (0.5-0.8),0.4438827879,0.3614928058,0.5231147541
+$5.50/day Poverty Line,Most-resilient (>=0.8),NN-1D,Most-resilient (>=0.8),0.5561172121,0.4768852459,0.6385071942
+$5.50/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Non-resilient (<0.5),0.008088326946,0,0.02544030951
+$5.50/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Resilient (0.5-0.8),0.4496113644,0.3594941016,0.5308064516
+$5.50/day Poverty Line,Most-resilient (>=0.8),XGB-Mix,Most-resilient (>=0.8),0.5423003087,0.4654646762,0.6363636364
+National Poverty Line,Non-resilient (<0.5),OLS+GLM,Non-resilient (<0.5),0.6470140257,0.6237465011,0.6674313623
+National Poverty Line,Non-resilient (<0.5),OLS+GLM,Resilient (0.5-0.8),0.3386047464,0.3178330611,0.3614869548
+National Poverty Line,Non-resilient (<0.5),OLS+GLM,Most-resilient (>=0.8),0.01438122791,0.008742455088,0.02108666007
+National Poverty Line,Non-resilient (<0.5),Elastic Net,Non-resilient (<0.5),0.7077943775,0.6874494581,0.7285469047
+National Poverty Line,Non-resilient (<0.5),Elastic Net,Resilient (0.5-0.8),0.2832132745,0.2623978578,0.3028019854
+National Poverty Line,Non-resilient (<0.5),Elastic Net,Most-resilient (>=0.8),0.008992348007,0.004944716243,0.0132341174
+National Poverty Line,Non-resilient (<0.5),XGB-1D,Non-resilient (<0.5),0.7542237977,0.7339093497,0.7715857035
+National Poverty Line,Non-resilient (<0.5),XGB-1D,Resilient (0.5-0.8),0.2252778875,0.2081219693,0.245435449
+National Poverty Line,Non-resilient (<0.5),XGB-1D,Most-resilient (>=0.8),0.02049831479,0.01415369922,0.02785401241
+National Poverty Line,Non-resilient (<0.5),NN-1D,Non-resilient (<0.5),0.9463695735,0.9348177328,0.9572486687
+National Poverty Line,Non-resilient (<0.5),NN-1D,Resilient (0.5-0.8),0.05363042647,0.04275133127,0.06518226725
+National Poverty Line,Non-resilient (<0.5),NN-1D,Most-resilient (>=0.8),0,0,0
+National Poverty Line,Non-resilient (<0.5),XGB-Mix,Non-resilient (<0.5),0.7243399669,0.7043131433,0.7420812912
+National Poverty Line,Non-resilient (<0.5),XGB-Mix,Resilient (0.5-0.8),0.2572419983,0.2393982841,0.2769366836
+National Poverty Line,Non-resilient (<0.5),XGB-Mix,Most-resilient (>=0.8),0.01841803482,0.01263339681,0.02454488473
+National Poverty Line,Resilient (0.5-0.8),OLS+GLM,Non-resilient (<0.5),0.01085699751,0.004865737669,0.01814005151
+National Poverty Line,Resilient (0.5-0.8),OLS+GLM,Resilient (0.5-0.8),0.376718058,0.3435732165,0.4100376946
+National Poverty Line,Resilient (0.5-0.8),OLS+GLM,Most-resilient (>=0.8),0.6124249445,0.5787336789,0.6474948555
+National Poverty Line,Resilient (0.5-0.8),Elastic Net,Non-resilient (<0.5),0.03805844642,0.0255428171,0.0532575965
+National Poverty Line,Resilient (0.5-0.8),Elastic Net,Resilient (0.5-0.8),0.5676927486,0.5340905571,0.5966138588
+National Poverty Line,Resilient (0.5-0.8),Elastic Net,Most-resilient (>=0.8),0.3942488049,0.3630246034,0.4263600856
+National Poverty Line,Resilient (0.5-0.8),XGB-1D,Non-resilient (<0.5),0.03680666534,0.02404531465,0.04987842893
+National Poverty Line,Resilient (0.5-0.8),XGB-1D,Resilient (0.5-0.8),0.4563182882,0.4214012959,0.4890457154
+National Poverty Line,Resilient (0.5-0.8),XGB-1D,Most-resilient (>=0.8),0.5068750464,0.4767507049,0.5422280866
+National Poverty Line,Resilient (0.5-0.8),NN-1D,Non-resilient (<0.5),0.1275864205,0.1048433449,0.1488758003
+National Poverty Line,Resilient (0.5-0.8),NN-1D,Resilient (0.5-0.8),0.8471094039,0.8236021947,0.8703843076
+National Poverty Line,Resilient (0.5-0.8),NN-1D,Most-resilient (>=0.8),0.02530417562,0.01530514878,0.03673281603
+National Poverty Line,Resilient (0.5-0.8),XGB-Mix,Non-resilient (<0.5),0.02960656834,0.0179790092,0.04206349643
+National Poverty Line,Resilient (0.5-0.8),XGB-Mix,Resilient (0.5-0.8),0.4502133004,0.4120505343,0.4851693347
+National Poverty Line,Resilient (0.5-0.8),XGB-Mix,Most-resilient (>=0.8),0.5201801313,0.4865532918,0.557044935
+National Poverty Line,Most-resilient (>=0.8),OLS+GLM,Non-resilient (<0.5),0,0,0
+National Poverty Line,Most-resilient (>=0.8),OLS+GLM,Resilient (0.5-0.8),0.008709426671,0.003661572802,0.01617736192
+National Poverty Line,Most-resilient (>=0.8),OLS+GLM,Most-resilient (>=0.8),0.9912905733,0.9838226381,0.9963384272
+National Poverty Line,Most-resilient (>=0.8),Elastic Net,Non-resilient (<0.5),0,0,0
+National Poverty Line,Most-resilient (>=0.8),Elastic Net,Resilient (0.5-0.8),0.08174455286,0.06480190233,0.1019947905
+National Poverty Line,Most-resilient (>=0.8),Elastic Net,Most-resilient (>=0.8),0.9182554471,0.8980052095,0.9351980977
+National Poverty Line,Most-resilient (>=0.8),XGB-1D,Non-resilient (<0.5),0,0,0
+National Poverty Line,Most-resilient (>=0.8),XGB-1D,Resilient (0.5-0.8),0.04142335479,0.02784503632,0.05535743442
+National Poverty Line,Most-resilient (>=0.8),XGB-1D,Most-resilient (>=0.8),0.9585766452,0.9446425656,0.9721549637
+National Poverty Line,Most-resilient (>=0.8),NN-1D,Non-resilient (<0.5),0,0,0
+National Poverty Line,Most-resilient (>=0.8),NN-1D,Resilient (0.5-0.8),0.2543884946,0.2263878528,0.2845703053
+National Poverty Line,Most-resilient (>=0.8),NN-1D,Most-resilient (>=0.8),0.7456115054,0.7154296947,0.7736121472
+National Poverty Line,Most-resilient (>=0.8),XGB-Mix,Non-resilient (<0.5),0,0,0
+National Poverty Line,Most-resilient (>=0.8),XGB-Mix,Resilient (0.5-0.8),0.0327475491,0.02123641139,0.04493009856
+National Poverty Line,Most-resilient (>=0.8),XGB-Mix,Most-resilient (>=0.8),0.9672524509,0.9550699014,0.9787635886

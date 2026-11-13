@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the article below."
+title: "Replication package for: Predicting Poverty-Resilient Households using Machine Learning in Sub-Saharan Africa"
+type: software
+version: 1.0.2
+date-released: 2026-11-13
+doi: 10.5281/zenodo.24147304
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24147304
+    description: "Record DOI (resolves to the latest version)"
+  - type: doi
+    value: 10.5281/zenodo.24200611
+    description: "Version 1.0.2"
+license: MIT
+repository-code: "https://github.com/noureini/nigeria-resilience-mdn"
+authors:
+  - family-names: Sayouti
+    given-names: Nouréini Souleymane
+    affiliation: "Innovations for Poverty Action"
+    email: nsayouti@poverty-action.org
+  - family-names: Mensah
+    given-names: Edouard Romeo
+    affiliation: "Department of Agricultural Economics, Sociology, and Education, The Pennsylvania State University"
+    email: mensahedouard@gmail.com
+    orcid: "https://orcid.org/0000-0002-6462-378X"
+keywords:
+  - resilience to poverty
+  - mixture density network
+  - distributional regression
+  - probabilistic forecasting
+  - targeting
+  - Nigeria
+preferred-citation:
+  type: article
+  title: "Predicting Poverty-Resilient Households using Machine Learning in Sub-Saharan Africa"
+  authors:
+    - family-names: Sayouti
+      given-names: Nouréini Souleymane
+    - family-names: Mensah
+      given-names: Edouard Romeo
+  journal: "Oxford Bulletin of Economics and Statistics"
+  year: 2026

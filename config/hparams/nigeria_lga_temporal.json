@@ -1,0 +1,67 @@
+{
+  "_source": "Hyperparameters selected by the Optuna search of the paper (50 TPE trials, seed 42; rerun with scripts/model/train_models.py --hpo). 'target_nll' is the QRT training loss of the winning trial at its best validation epoch, printed to 6 decimals; the final MDN / NN-1D refit on train+validation stops when its training loss reaches it.",
+  "elastic_net": {
+    "mean_alpha": 0.1,
+    "mean_L1_wt": 0.1,
+    "var_alpha": 0.1,
+    "var_L1_wt": 0.0,
+    "val_score": 0.852167859865331
+  },
+  "xgb_1d": {
+    "eta": 0.2711781602281459,
+    "max_depth": 1,
+    "gamma": 0.7554684600328301,
+    "subsample": 0.8661660699739252,
+    "colsample_bytree": 0.8356501927838754,
+    "min_child_weight": 6.366725901516752e-05,
+    "booster": "gbtree",
+    "opt_rounds": 95
+  },
+  "xgb_mix": {
+    "M": 3,
+    "eta": 0.04923584309185605,
+    "max_depth": 1,
+    "gamma": 7.271756377241903,
+    "subsample": 0.41732178664500474,
+    "colsample_bytree": 0.47486344437245165,
+    "min_child_weight": 471.51491810538465,
+    "booster": "gbtree",
+    "opt_rounds": 77
+  },
+  "mdn": {
+    "best_trial": 48,
+    "best_val_nll": 1.81763,
+    "params": {
+      "n_hidden": 1,
+      "neurons": 768,
+      "dropout": 0.2092329962764269,
+      "n_components": 3,
+      "l2_reg_v1": 1.4968919287946166e-05,
+      "l2_reg_v2": 0.00031775837386461794,
+      "learning_rate": 4.2535427797551376e-05,
+      "kde_b": 0.2112804199872899,
+      "batch_size": 32
+    },
+    "kde_b": 0.2112804199872899,
+    "target_nll": 1.633816,
+    "published_stop_epoch": 35
+  },
+  "nn_1d": {
+    "best_trial": 42,
+    "best_val_nll": 1.82924,
+    "params": {
+      "n_hidden": 4,
+      "neurons": 448,
+      "dropout": 0.23687786412818915,
+      "n_components": 1,
+      "l2_reg_v1": 1.3099638814338561e-05,
+      "l2_reg_v2": 0.00021587333397223675,
+      "learning_rate": 0.0001347195771929996,
+      "kde_b": 0.20433458875746147,
+      "batch_size": 32
+    },
+    "kde_b": 0.20433458875746147,
+    "target_nll": 1.762215,
+    "published_stop_epoch": 8
+  }
+}

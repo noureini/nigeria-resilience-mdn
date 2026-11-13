@@ -1,0 +1,13 @@
+# Source and text files: normalise to LF in the repository.
+* text=auto eol=lf
+
+# Data, reference outputs and model outputs are stored byte-for-byte.
+data/**       -text
+reference/**  -text
+models/**     -text
+*.parquet     binary
+*.npz         binary
+*.xlsx        binary
+*.dta         binary
+*.pdf         binary
+*.png         binary

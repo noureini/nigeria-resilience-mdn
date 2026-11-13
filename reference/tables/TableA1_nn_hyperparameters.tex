@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\caption{Selected Neural Network Hyperparameters}
+\label{tab:nn_hparams}
+\begin{tabular}{lcc}
+\toprule
+Hyperparameter & MDN & NN-1D \\
+\midrule
+Hidden layers & 2 & 1 \\
+Neurons per layer & 512 & 448 \\
+Dropout rate & 0.10 & 0.21 \\
+Mixture components & 4 & 1 \\
+L2 regularization (hidden) & $1.5 \times 10^{-5}$ & $1.2 \times 10^{-5}$ \\
+L2 regularization (output) & $1.9 \times 10^{-4}$ & $3.0 \times 10^{-5}$ \\
+Learning rate & $1.7 \times 10^{-4}$ & $3.3 \times 10^{-5}$ \\
+Batch size & 32 & 32 \\
+QRT bandwidth & 0.24 & 0.23 \\
+\bottomrule
+\end{tabular}
+\end{table}

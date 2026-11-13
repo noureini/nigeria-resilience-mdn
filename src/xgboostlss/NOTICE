@@ -1,0 +1,11 @@
+This directory is a vendored copy of XGBoostLSS (Maerz, A., "XGBoostLSS - An
+extension of XGBoost to probabilistic forecasting"),
+https://github.com/StatMixedML/XGBoostLSS, distributed under the Apache License,
+Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
+
+It is the copy that produced the published results and is kept here so that the
+results do not depend on later upstream changes.  Local modification by the
+authors: model.XGBoostLSS.hyper_opt tunes on a held-out validation DMatrix
+(instead of cross-validation), with seeded TPE sampling (`seed`, `hp_seed`) and a
+time budget (`max_minutes`).  The example datasets of the upstream package are
+omitted.

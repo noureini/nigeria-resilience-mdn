@@ -1,0 +1,153 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      reproduce:
+        description: "Run the full reproduction and verification"
+        type: boolean
+        default: true
+
+jobs:
+  tests:
+    name: Unit tests (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.8"
+      - run: uv sync --frozen --extra dev
+      - run: uv run pytest -q
+
+  reproduce:
+    # The full run: data built from the GHS-Panel files, predictions from the shipped
+    # models, every exhibit regenerated and compared with reference/.
+    name: Reproduce the paper (${{ matrix.os }})
+    if: github.event_name == 'workflow_dispatch' && inputs.reproduce
+    needs: tests
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.8"
+      - run: uv sync --frozen
+      # The GHS-Panel and EPAR files cannot be redistributed: the authors keep their
+      # copies in a private repository (layout of data/raw/ghs and data/raw/epar),
+      # read with a read-only deploy key (secret DATA_REPO_SSH_KEY). In a fork, put
+      # your own copy in a private repository, set its name as the variable DATA_REPO
+      # and a deploy key as DATA_REPO_SSH_KEY; or run reproduce.py locally.
+      - name: Licensed survey data (private repository)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.DATA_REPO || 'noureini/nigeria-resilience-data' }}
+          ssh-key: ${{ secrets.DATA_REPO_SSH_KEY }}
+          path: licensed-data
+      - name: Place the survey data
+        shell: bash
+        run: |
+          mkdir -p data/raw
+          cp -r licensed-data/ghs data/raw/ghs
+          cp -r licensed-data/epar data/raw/epar
+      - run: uv run python reproduce.py
+      - name: Verification report
+        if: always()
+        run: cat outputs/verification_report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: paper-exhibits-${{ matrix.os }}
+          path: |
+            outputs/figures/
+            outputs/tables/
+            outputs/verification_report.md
+            outputs/logs/
+
+  refit:
+    # Optional check: refit the six models in the reference environment and
+    # compare the predictions and exhibits with the shipped ones.
+    name: Refit and compare (Linux, attempt ${{ matrix.attempt }})
+    if: github.event_name == 'workflow_dispatch' && inputs.reproduce
+    needs: tests
+    strategy:
+      fail-fast: false
+      matrix:
+        attempt: [1, 2, 3]   # independent runners, so that at least one is a reference CPU
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      # The refit is bit-identical only on the reference CPUs (AMD EPYC 7763 / 9V74,
+      # same kernels); GitHub assigns runners at random. On another CPU the remaining
+      # steps are skipped with a warning, so a difference is never misread.
+      - name: Reference CPU check
+        id: cpu
+        shell: bash
+        run: |
+          cpu="$(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2 | xargs)"
+          echo "CPU: $cpu"
+          case "$cpu" in
+            *"EPYC 7763"*|*"EPYC 9V74"*) ok=true ;;
+            *) ok=false ;;
+          esac
+          if [ "$ok" = true ] || [ "false" = true ]; then
+            echo "reference=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "reference=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Runner CPU is $cpu, not the reference AMD EPYC 7763/9V74: refit skipped (re-run this job, or use another attempt)."
+          fi
+          echo "### Runner CPU: $cpu" >> "$GITHUB_STEP_SUMMARY"
+      - uses: astral-sh/setup-uv@v6
+        if: steps.cpu.outputs.reference == 'true'
+        with:
+          version: "0.11.8"
+      - run: uv sync --frozen
+        if: steps.cpu.outputs.reference == 'true'
+      # The GHS-Panel and EPAR files cannot be redistributed: the authors keep their
+      # copies in a private repository (layout of data/raw/ghs and data/raw/epar),
+      # read with a read-only deploy key (secret DATA_REPO_SSH_KEY). In a fork, put
+      # your own copy in a private repository, set its name as the variable DATA_REPO
+      # and a deploy key as DATA_REPO_SSH_KEY; or run reproduce.py locally.
+      - name: Licensed survey data (private repository)
+        if: steps.cpu.outputs.reference == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.DATA_REPO || 'noureini/nigeria-resilience-data' }}
+          ssh-key: ${{ secrets.DATA_REPO_SSH_KEY }}
+          path: licensed-data
+      - name: Place the survey data
+        if: steps.cpu.outputs.reference == 'true'
+        shell: bash
+        run: |
+          mkdir -p data/raw
+          cp -r licensed-data/ghs data/raw/ghs
+          cp -r licensed-data/epar data/raw/epar
+      - run: uv run python reproduce.py --retrain
+        if: steps.cpu.outputs.reference == 'true'
+      - name: Verification report
+        if: always() && steps.cpu.outputs.reference == 'true'
+        run: cat outputs/verification_report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.cpu.outputs.reference == 'true'
+        with:
+          name: refit-check-${{ matrix.attempt }}
+          path: |
+            models_retrained/
+            outputs/verification_report.md
+            outputs/logs/

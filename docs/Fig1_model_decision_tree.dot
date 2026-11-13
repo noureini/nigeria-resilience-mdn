@@ -1,0 +1,96 @@
+digraph ModelTree {
+    // Graph settings
+    graph [fontname="Times-Roman", fontsize=12, ranksep=0.8, nodesep=0.5];
+    node [fontname="Times-Roman", fontsize=10, shape=box, style=rounded];
+    edge [fontname="Times-Roman", fontsize=9];
+    
+    // Root node
+    root [label="Estimation Framework", shape=box, style="rounded,filled", fillcolor=gray90, width=2.5, height=0.6];
+    
+    // Level 1 - Framework choice
+    twostage [label="Regularization?", style="rounded,filled", fillcolor=gray95, width=1.8];
+    distributional [label="Function Approximator?", style="rounded,filled", fillcolor=gray95, width=2.2];
+    
+    root -> twostage [label="Two-Stage"];
+    root -> distributional [label="Distributional"];
+    
+    // Level 2 - Two-stage models
+    model1 [label=
+        <table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>① OLS+GLM</b></td></tr>
+        <tr><td><i>(Benchmark)</i></td></tr>
+        <tr><td> </td></tr>
+        <tr><td align="left">Mean: OLS</td></tr>
+        <tr><td align="left">Variance: GLM-Poisson</td></tr>
+        <tr><td align="left">Distribution: Log-normal</td></tr>
+        </table>
+    >, shape=box, style="rounded,bold", width=2.0, height=1.2];
+    
+    model2 [label=
+        <table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>② Elastic Net</b></td></tr>
+        <tr><td><i>(Regularized)</i></td></tr>
+        <tr><td> </td></tr>
+        <tr><td align="left">Mean: Elastic net</td></tr>
+        <tr><td align="left">Variance: GLM-Pois (reg)</td></tr>
+        <tr><td align="left">Distribution: Log-normal</td></tr>
+        </table>
+    >, shape=box, style="rounded,bold", width=2.0, height=1.2];
+    
+    twostage -> model1 [label="No"];
+    twostage -> model2 [label="Yes"];
+    
+    // Level 2 - Distributional branch
+    nn_dist [label="Distribution Type?", style="rounded,filled", fillcolor=white, width=1.8];
+    xgb_dist [label="Distribution Type?", style="rounded,filled", fillcolor=white, width=1.8];
+    
+    distributional -> nn_dist [label="Neural Net"];
+    distributional -> xgb_dist [label="XGBoost"];
+    
+    // Level 3 - Final models
+    model3 [label=
+        <table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>③ MDN</b></td></tr>
+        <tr><td> </td></tr>
+        <tr><td align="left">Method: NN</td></tr>
+        <tr><td align="left">Distribution: Mixture</td></tr>
+        </table>
+    >, shape=box, style="rounded,bold", width=1.5, height=0.8];
+    
+    model4 [label=
+        <table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>④ NN-1D</b></td></tr>
+        <tr><td> </td></tr>
+        <tr><td align="left">Method: NN</td></tr>
+        <tr><td align="left">Distribution: Gaussian</td></tr>
+        </table>
+    >, shape=box, style="rounded,bold", width=1.5, height=0.8];
+    
+    model5 [label=
+        <table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>⑤ XGB-Mix</b></td></tr>
+        <tr><td> </td></tr>
+        <tr><td align="left">Method: XGBoost</td></tr>
+        <tr><td align="left">Distribution: Mixture</td></tr>
+        </table>
+    >, shape=box, style="rounded,bold", width=1.5, height=0.8];
+    
+    model6 [label=
+        <table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>⑥ XGB-1D</b></td></tr>
+        <tr><td> </td></tr>
+        <tr><td align="left">Method: XGBoost</td></tr>
+        <tr><td align="left">Distribution: Gaussian</td></tr>
+        </table>
+    >, shape=box, style="rounded,bold", width=1.5, height=0.8];
+    
+    nn_dist -> model3 [label="Mixture"];
+    nn_dist -> model4 [label="Single"];
+    xgb_dist -> model5 [label="Mixture"];
+    xgb_dist -> model6 [label="Single"];
+    
+    // Invisible edges for better layout
+    {rank=same; twostage; distributional;}
+    {rank=same; model1; model2; nn_dist; xgb_dist;}
+    {rank=same; model3; model4; model5; model6;}
+}

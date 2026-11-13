@@ -1,0 +1,101 @@
+name: Reference refit
+
+# Refit the six models of both designs in the reference environment (Linux x86-64,
+# pinned lock file, settings of reproduce.py) and upload the fitted models,
+# predictions and logs. Repeated runs check that the refit is bit-identical; the
+# CPU of each run is recorded in training_info.json.
+on:
+  workflow_dispatch:
+    inputs:
+      tf_threads:
+        description: "TensorFlow thread pools (0 = TensorFlow default, the reference)"
+        default: "0"
+      op_determinism:
+        description: "Call tf.config.experimental.enable_op_determinism (1/0)"
+        default: "1"
+      runs:
+        description: "Number of identical runs (JSON list)"
+        default: "[1, 2, 3]"
+      any_cpu:
+        description: "Refit on any CPU, not only the reference AMD EPYC 7763/9V74 (sensitivity checks)"
+        type: boolean
+        default: false
+
+jobs:
+  refit:
+    name: Refit (run ${{ matrix.run }})
+    strategy:
+      fail-fast: false
+      matrix:
+        run: ${{ fromJSON(inputs.runs) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      # The refit is bit-identical only on the reference CPUs (AMD EPYC 7763 / 9V74,
+      # same kernels); GitHub assigns runners at random. On another CPU the remaining
+      # steps are skipped with a warning, so a difference is never misread.
+      - name: Reference CPU check
+        id: cpu
+        shell: bash
+        run: |
+          cpu="$(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2 | xargs)"
+          echo "CPU: $cpu"
+          case "$cpu" in
+            *"EPYC 7763"*|*"EPYC 9V74"*) ok=true ;;
+            *) ok=false ;;
+          esac
+          if [ "$ok" = true ] || [ "${{ inputs.any_cpu }}" = true ]; then
+            echo "reference=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "reference=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Runner CPU is $cpu, not the reference AMD EPYC 7763/9V74: refit skipped (re-run this job, or use another attempt)."
+          fi
+          echo "### Runner CPU: $cpu" >> "$GITHUB_STEP_SUMMARY"
+      - uses: astral-sh/setup-uv@v6
+        if: steps.cpu.outputs.reference == 'true'
+        with:
+          version: "0.11.8"
+      - run: uv sync --frozen
+        if: steps.cpu.outputs.reference == 'true'
+      # The GHS-Panel and EPAR files cannot be redistributed: the authors keep their
+      # copies in a private repository (layout of data/raw/ghs and data/raw/epar),
+      # read with a read-only deploy key (secret DATA_REPO_SSH_KEY). In a fork, put
+      # your own copy in a private repository, set its name as the variable DATA_REPO
+      # and a deploy key as DATA_REPO_SSH_KEY; or run reproduce.py locally.
+      - name: Licensed survey data (private repository)
+        if: steps.cpu.outputs.reference == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.DATA_REPO || 'noureini/nigeria-resilience-data' }}
+          ssh-key: ${{ secrets.DATA_REPO_SSH_KEY }}
+          path: licensed-data
+      - name: Place the survey data
+        if: steps.cpu.outputs.reference == 'true'
+        shell: bash
+        run: |
+          mkdir -p data/raw
+          cp -r licensed-data/ghs data/raw/ghs
+          cp -r licensed-data/epar data/raw/epar
+      - run: uv run python reproduce.py --stage data
+        if: steps.cpu.outputs.reference == 'true'
+      - run: uv run python reproduce.py --stage model --retrain
+        if: steps.cpu.outputs.reference == 'true'
+        env:
+          NIGERIA_RESILIENCE_TF_THREADS_OVERRIDE: ${{ inputs.tf_threads }}
+          NIGERIA_RESILIENCE_OP_DETERMINISM: ${{ inputs.op_determinism }}
+      - name: Summary
+        if: steps.cpu.outputs.reference == 'true'
+        run: |
+          for sc in nigeria_temporal nigeria_lga_temporal; do
+            echo "### $sc"
+            uv run python -c "import json; i = json.load(open('models_retrained/$sc/training_info.json')); print('CPU:', i['cpu'], '| threads:', i['tf_threads'], '| stop epochs:', i['stop_epochs'])"
+            grep -h "Stopping Criteria" outputs/logs/*$sc*.log || true
+          done >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: steps.cpu.outputs.reference == 'true'
+        with:
+          name: models-reference-run${{ matrix.run }}
+          path: |
+            models_retrained/
+            outputs/logs/
